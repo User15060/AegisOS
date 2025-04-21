@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Forms\EmailVerifier\EmailVerifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\EncryptTools\EncryptTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FileAnalyzer\FileAnalyzer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\LoginUser\LoginUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\NetworkTools\NetworkTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Reports\Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SystemCheck\SystemCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

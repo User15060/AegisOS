@@ -460,7 +460,7 @@
             guna2GradientButton4.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2GradientButton4.Font = new Font("Century Gothic", 12F);
             guna2GradientButton4.ForeColor = Color.Gainsboro;
-            guna2GradientButton4.Location = new Point(76, 366);
+            guna2GradientButton4.Location = new Point(76, 374);
             guna2GradientButton4.Name = "guna2GradientButton4";
             guna2GradientButton4.ShadowDecoration.CustomizableEdges = customizableEdges20;
             guna2GradientButton4.Size = new Size(270, 68);

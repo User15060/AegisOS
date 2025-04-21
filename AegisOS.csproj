@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="02_Modele\NetworkToolsModele\**" />
+    <EmbeddedResource Remove="02_Modele\NetworkToolsModele\**" />
+    <None Remove="02_Modele\NetworkToolsModele\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.7" />
     <PackageReference Include="LiveCharts" Version="0.9.7" />
@@ -32,13 +38,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Resources\WorldXML\World.xml">
+    <None Update="05_UI\Resources\WorldXML\World.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\OpenVPN\" />
+    <Folder Include="05_UI\Resources\OpenVPN\" />
   </ItemGroup>
 
 </Project>

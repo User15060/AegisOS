@@ -1,4 +1,5 @@
-﻿using AegisOS.Modele;
+﻿using AegisOS._02_Modele._01_NetworkToolsModele;
+using AegisOS._03_Controleur.NetworkToolsController;
 using LiveCharts.WinForms;
 using System;
 using System.Collections.Generic;
@@ -19,10 +20,12 @@ using System.Runtime.CompilerServices;
 
 namespace AegisOS.Forms
 {
-    public partial class NetworkTools : Form
+    public partial class NetworkToolsForm : Form
     {
         private bool sideBarExpand;
-        private VPN_Modele.VpnResult vpnResult;
+        private VpnStatus.VpnResult vpnResult;
+        private readonly NetworkToolsController _vpnController;
+
 
         private string contryIP;
         private string contryVPN;
@@ -35,22 +38,21 @@ namespace AegisOS.Forms
         private GeoMap _currentGeoMap;
         private Dictionary<string, double> _currentValues = new Dictionary<string, double>();
 
-        private VPN_Modele vpnService = new VPN_Modele();
+        //private VPN_Modele vpnService = new VPN_Modele();
 
 
-        public NetworkTools()
+        public NetworkToolsForm()
         {
             InitializeComponent();
-
+            _vpnController = new NetworkToolsController();
             ConfigurationIpHome();
-
             PingConnection.Start();
         }
 
 
         private async void PingConnection_Tick(object sender, EventArgs e)
         {
-            pingConnection = await vpnService.ShowPing();
+            pingConnection = await _vpnController.GetPingStatus();
 
             if (pingConnection.connection > -1)
             {
@@ -66,7 +68,7 @@ namespace AegisOS.Forms
 
         private async void ConfigurationIpHome()
         {
-            ipConnection = await vpnService.ShowIp();
+            ipConnection = await _vpnController.GetIpStatus();
 
             ipHome = ipConnection.myIp;
             VPNIPHome.Text = ipHome;
@@ -190,42 +192,22 @@ namespace AegisOS.Forms
 
         private async void VPNButtonDisconnect_Click(object sender, EventArgs e)
         {
-            if (!vpnResult.IsConnected)
+            if (!vpnResult.IsSuccess)
             {
-                vpnResult = vpnService.OpenVpn();
-
-                if (vpnResult.IsConnected)
-                {
-                    vpnResult.IsConnected = true;
-                    await UpdateVPNUIDesign();
-                    MessageBox.Show(vpnResult.Message);
-                }
-                else
-                {
-                    MessageBox.Show(vpnResult.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                vpnResult = _vpnController.ConnectVpn();
+                await UpdateVPNUIDesign();
             }
             else
             {
-                vpnResult = vpnService.CloseVpn();
-
-                if (vpnResult.IsConnected)
-                {
-                    vpnResult.IsConnected = false;
-                    await UpdateVPNUIDesign();
-                    MessageBox.Show(vpnResult.Message);
-                }
-                else
-                {
-                    MessageBox.Show(vpnResult.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                vpnResult = _vpnController.DisconnectVpn();
+                await UpdateVPNUIDesign();
             }
         }
 
         
         private async Task UpdateVPNUIDesign()
         {
-            bool connected = vpnResult.IsConnected;
+            bool connected = vpnResult.IsSuccess;
 
             VPNButtonDisconnect.Text = connected ? "DISCONNECT" : "CONNECT";
             VPNButtonDisconnect.FillColor = connected ? System.Drawing.Color.FromArgb(255, 76, 97) : System.Drawing.Color.FromArgb(0, 184, 148);
@@ -234,7 +216,7 @@ namespace AegisOS.Forms
             if (connected)
             {
                 await Task.Delay(5000);
-                ipConnection = await vpnService.ShowIp();
+                ipConnection = await _vpnController.GetIpStatus();
 
                 ipRegion = ipConnection.myIp;
                 VPNIPRegion.Text = ipRegion;
@@ -270,14 +252,14 @@ namespace AegisOS.Forms
 
         private void VPNPreferencesTCPButtonSwitch_Click(object sender, EventArgs e)
         {
+            _vpnController.SetProtocol(true);
             VPNPreferences(true);
-            vpnService.preferencesProtocols = true;
         }
 
         private void VPNPreferencesUDPButtonSwitch_Click(object sender, EventArgs e)
         {
-            VPNPreferences(false);
-            vpnService.preferencesProtocols = false;
+            _vpnController.SetProtocol(true);
+            VPNPreferences(true);
         }
     }
 }

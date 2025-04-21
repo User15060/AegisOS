@@ -88,7 +88,7 @@ namespace AegisOS
         private void MainMenuButton1_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1, PannelButton1);
-            OpenChildForm(new NetworkTools());
+            OpenChildForm(new NetworkToolsForm());
         }
 
         private void MainMenuButton2_Click(object sender, EventArgs e)

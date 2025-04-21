@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AegisOS.Modele
+namespace AegisOS._05_UI.Themes
 {
-    internal class LoginUser_Modele
+    internal class UIConstants
     {
     }
 }

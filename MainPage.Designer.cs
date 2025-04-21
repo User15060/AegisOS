@@ -199,7 +199,7 @@
             MainMenuButton3.Padding = new Padding(13, 0, 20, 0);
             MainMenuButton3.Size = new Size(330, 70);
             MainMenuButton3.TabIndex = 3;
-            MainMenuButton3.Text = " File Analyzer";
+            MainMenuButton3.Text = "Analyzer Tools";
             MainMenuButton3.TextAlign = ContentAlignment.MiddleLeft;
             MainMenuButton3.TextImageRelation = TextImageRelation.ImageBeforeText;
             MainMenuButton3.UseVisualStyleBackColor = true;

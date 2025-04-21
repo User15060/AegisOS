@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SCw2stpD6Hg=",
+  "dgSpecHash": "lHL3NIqpveU=",
   "success": true,
   "projectFilePath": "D:\\Projet\\AegisOS\\AegisOS Main\\AegisOS\\AegisOS\\AegisOS.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\luc25\\.nuget\\packages\\livecharts\\0.9.7\\livecharts.0.9.7.nupkg.sha512",
     "C:\\Users\\luc25\\.nuget\\packages\\livecharts.winforms\\0.9.7.1\\livecharts.winforms.0.9.7.1.nupkg.sha512",
     "C:\\Users\\luc25\\.nuget\\packages\\livecharts.wpf\\0.9.7\\livecharts.wpf.0.9.7.nupkg.sha512",
+    "C:\\Users\\luc25\\.nuget\\packages\\restsharp\\112.1.0\\restsharp.112.1.0.nupkg.sha512",
     "C:\\Users\\luc25\\.nuget\\packages\\suchbyte.speedtestsharp\\1.0.2\\suchbyte.speedtestsharp.1.0.2.nupkg.sha512",
     "C:\\Users\\luc25\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
     "C:\\Users\\luc25\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512"

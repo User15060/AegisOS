@@ -75,6 +75,19 @@
           }
         }
       },
+      "RestSharp/112.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/RestSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/RestSharp.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "SuchByte.SpeedTestSharp/1.0.2": {
         "type": "package",
         "compile": {
@@ -226,6 +239,31 @@
         "tools/install.ps1"
       ]
     },
+    "RestSharp/112.1.0": {
+      "sha512": "bOUGNZqhhv/QeCXHTKEUil846yBjwWXpzPKjO67kFvaAOoF361z7jLY5BMnuZ6WD2WQRA750sNMcK7MSPCQ5Mg==",
+      "type": "package",
+      "path": "restsharp/112.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net471/RestSharp.dll",
+        "lib/net471/RestSharp.xml",
+        "lib/net48/RestSharp.dll",
+        "lib/net48/RestSharp.xml",
+        "lib/net6.0/RestSharp.dll",
+        "lib/net6.0/RestSharp.xml",
+        "lib/net7.0/RestSharp.dll",
+        "lib/net7.0/RestSharp.xml",
+        "lib/net8.0/RestSharp.dll",
+        "lib/net8.0/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.112.1.0.nupkg.sha512",
+        "restsharp.nuspec",
+        "restsharp.png"
+      ]
+    },
     "SuchByte.SpeedTestSharp/1.0.2": {
       "sha512": "xy6d07gxgWMAlQUP4vWREjgpC55pfBwuGM2ZMDu0TTHU2stUorjiuCeXzsi/ad0faUuyKc7RhRwE+K2OUEzKTQ==",
       "type": "package",
@@ -301,6 +339,7 @@
       "Guna.UI2.WinForms >= 2.0.4.7",
       "LiveCharts >= 0.9.7",
       "LiveCharts.WinForms >= 0.9.7.1",
+      "RestSharp >= 112.1.0",
       "SuchByte.SpeedTestSharp >= 1.0.2"
     ]
   },
@@ -370,6 +409,10 @@
           "LiveCharts.WinForms": {
             "target": "Package",
             "version": "[0.9.7.1, )"
+          },
+          "RestSharp": {
+            "target": "Package",
+            "version": "[112.1.0, )"
           },
           "SuchByte.SpeedTestSharp": {
             "target": "Package",

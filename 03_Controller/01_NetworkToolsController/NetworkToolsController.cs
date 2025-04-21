@@ -10,13 +10,13 @@ namespace AegisOS._03_Controleur.NetworkToolsController
 {
     internal class NetworkToolsController
     {
-        private readonly AppConfig.VpnConfig _config;
+        private readonly AppConfig.NetworkToolsConfig _config;
         private readonly VpnProcessService _vpnProcessService;
         private readonly NetworkUtility _networkUtility;
 
         public NetworkToolsController()
         {
-            _config = new AppConfig.VpnConfig();
+            _config = new AppConfig.NetworkToolsConfig();
             _vpnProcessService = new VpnProcessService();
             _networkUtility = new NetworkUtility();
         }

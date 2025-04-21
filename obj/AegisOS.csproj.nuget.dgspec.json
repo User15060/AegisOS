@@ -67,6 +67,10 @@
               "target": "Package",
               "version": "[0.9.7.1, )"
             },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[112.1.0, )"
+            },
             "SuchByte.SpeedTestSharp": {
               "target": "Package",
               "version": "[1.0.2, )"

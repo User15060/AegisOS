@@ -14,7 +14,7 @@ namespace AegisOS._02_Modele._01_NetworkToolsModele
     {
         private Process? _vpnProcess;
 
-        public VpnStatus.VpnResult StartVpn(AppConfig.VpnConfig config)
+        public VpnStatus.VpnResult StartVpn(AppConfig.NetworkToolsConfig config)
         {
             string selectedConfig = config.GetPreferredConfigPath();
             if (!File.Exists(selectedConfig))

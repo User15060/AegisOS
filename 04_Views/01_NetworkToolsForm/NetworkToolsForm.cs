@@ -32,13 +32,10 @@ namespace AegisOS.Forms
 
         private string ipHome;
         private string ipRegion;
-        private (string myIp, string message) ipConnection;
-        private (long connection, string message) pingConnection;
 
         private GeoMap _currentGeoMap;
         private Dictionary<string, double> _currentValues = new Dictionary<string, double>();
 
-        //private VPN_Modele vpnService = new VPN_Modele();
 
 
         public NetworkToolsForm()
@@ -52,25 +49,25 @@ namespace AegisOS.Forms
 
         private async void PingConnection_Tick(object sender, EventArgs e)
         {
-            pingConnection = await _vpnController.GetPingStatus();
+            var (connectionPing, message) = await _vpnController.GetPingStatus();
 
-            if (pingConnection.connection > -1)
+            if (connectionPing > -1)
             {
-                MbpsCalculator.Value = (int)pingConnection.connection;
-                MbpsValueText.Text = pingConnection.connection.ToString();
+                MbpsCalculator.Value = (int)connectionPing;
+                MbpsValueText.Text = connectionPing.ToString();
             }
             else
             {
-                MessageBox.Show(pingConnection.message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } 
         }
 
 
         private async void ConfigurationIpHome()
         {
-            ipConnection = await _vpnController.GetIpStatus();
+            var (connectionIp, message) = await _vpnController.GetIpStatus();
 
-            ipHome = ipConnection.myIp;
+            ipHome = connectionIp;
             VPNIPHome.Text = ipHome;
             VPNImage1.ForeColor = System.Drawing.Color.FromArgb(0, 184, 148);
         }
@@ -216,9 +213,9 @@ namespace AegisOS.Forms
             if (connected)
             {
                 await Task.Delay(5000);
-                ipConnection = await _vpnController.GetIpStatus();
+                var (connectionIp, message) = await _vpnController.GetIpStatus();
 
-                ipRegion = ipConnection.myIp;
+                ipRegion = connectionIp;
                 VPNIPRegion.Text = ipRegion;
                 VPNImage2.ForeColor = System.Drawing.Color.FromArgb(0, 184, 148);
 

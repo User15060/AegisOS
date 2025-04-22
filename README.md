@@ -1,3 +1,3 @@
 # AegisOS
  
-## ON PROGRESS
+## IN PROGRESS

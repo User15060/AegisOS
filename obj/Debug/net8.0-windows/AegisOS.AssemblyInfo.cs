@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AegisOS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+79efc8e64ad722a02b5cdee8df1e9e11393881a5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed3af3011ffead26a6ceb2c843614bf5bd2bf499")]
 [assembly: System.Reflection.AssemblyProductAttribute("AegisOS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AegisOS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

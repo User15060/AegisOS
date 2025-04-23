@@ -13,5 +13,6 @@ namespace AegisOS._02_Modele._03_AnalyzerToolsModele.Modele
         public string ErrorMessage { get; set; }
         public DateTime AnalysisTime { get; set; }
         public string AnalysisType { get; set; }
+        public int StatusCode { get; set; }
     }
 }

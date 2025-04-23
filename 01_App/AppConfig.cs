@@ -35,15 +35,19 @@ namespace AegisOS._01_App
             public string BaseUrl { get; set; }
             public int RetryDelay { get; set; }
             public int MaxRetries { get; set; }
-            public ApiKeyManager ApiKeys { get; set; }
+            public readonly ApiKeyManager _apiKeys;
 
             public AnalyzerToolsConfig()
             {
                 BaseUrl = "https://www.virustotal.com/api/v3";
                 RetryDelay = 15000;
                 MaxRetries = 3;
-                //ApiKeys = new ApiKeyManager();
+                _apiKeys = new ApiKeyManager();
             }
+            public void AddApiKey(string apiKey) => _apiKeys.AddApiKey(apiKey);
+            public void RemoveApiKey(string apiKey) => _apiKeys.RemoveApiKey(apiKey);
+            public string GetCurrentApiKey() => _apiKeys.CurrentApiKey;
+            public void RotateApiKey() => _apiKeys.RotateApiKey();
         }
     }
 }

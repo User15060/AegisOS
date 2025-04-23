@@ -42,9 +42,6 @@ namespace AegisOS._02_Modele._03_AnalyzerToolsModele.Modele
             }
         }
 
-        public List<string> GetAllApiKeys()
-        {
-            return new List<string>(_apiKeys);
-        }
+        public IReadOnlyList<string> GetAllApiKeys() => _apiKeys.AsReadOnly();
     }
 }

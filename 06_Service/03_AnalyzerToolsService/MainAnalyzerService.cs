@@ -40,7 +40,6 @@ namespace AegisOS._06_Services
                     AnalysisTime = DateTime.Now,
                     AnalysisType = analysisType,
                     StatusCode = (int)response.StatusCode
-
                 };
             }
             else if ((int)response.StatusCode == 429)

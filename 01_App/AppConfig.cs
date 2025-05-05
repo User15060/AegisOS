@@ -30,6 +30,42 @@ namespace AegisOS._01_App
         }
 
 
+        public class EncryptToolsConfig
+        {
+            public string[] CreateDataBaseScript { get; }
+
+            public string ConnectionDataBase { get; }
+
+            public EncryptToolsConfig()
+            {
+                CreateDataBaseScript = new[] 
+                    {@"
+                    CREATE TABLE IF NOT EXISTS Users (
+                    Id INT PRIMARY KEY AUTO_INCREMENT,
+                    Username VARCHAR(50) NOT NULL UNIQUE,
+                    PasswordHash VARBINARY(32) NOT NULL,
+                    PasswordSalt VARBINARY(32) NOT NULL,
+                    CreatedAt DATETIME NOT NULL,
+                    FailedAttempts INT DEFAULT 0,
+                    IsLocked BOOLEAN DEFAULT FALSE
+                    );",
+                    @"
+                    CREATE TABLE IF NOT EXISTS Files (
+                    Id INT PRIMARY KEY AUTO_INCREMENT,
+                    UserId INT NOT NULL,
+                    FileName VARCHAR(255) NOT NULL,
+                    FilePath VARCHAR(255) NOT NULL,
+                    OriginalPath VARCHAR(255) NOT NULL,
+                    IsDirectory BOOLEAN DEFAULT FALSE,
+                    EncryptionDate DATETIME NOT NULL,
+                    FOREIGN KEY (UserId) REFERENCES Users(Id)
+                    );"};
+
+                ConnectionDataBase = "Server=localhost;Database=cryptage_fichier;Uid=root;Pwd=;";
+            }
+        }
+    
+
         public class AnalyzerToolsConfig
         {
             public string BaseUrl { get; set; }

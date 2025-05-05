@@ -36,7 +36,7 @@ namespace AegisOS._02_Modele._03_AnalyzerToolsModele.Modele
 
         public void RemoveApiKey(string apiKey)
         {
-            if (_apiKeys.Count >= 0)
+            if (_apiKeys.Count > 0)
             {
                 _apiKeys.Remove(apiKey);
             }

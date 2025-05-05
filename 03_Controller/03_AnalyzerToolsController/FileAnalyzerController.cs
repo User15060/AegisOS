@@ -8,48 +8,22 @@ using System.Threading.Tasks;
 using AegisOS._02_Modele._03_AnalyzerToolsModele.Interface;
 using AegisOS._02_Modele._03_AnalyzerToolsModele.Modele;
 using System.Windows.Navigation;
+using AegisOS._06_Services;
 
 namespace AegisOS._03_Controller._03_AnalyzerToolsController
 {
     internal class FileAnalyzerController : IAnalyzer
     {
-        private readonly IAnalyzer _analyzer;
+        private readonly FileAnalyzerService _fileAnalyzerService;
 
-
-        private async Task<AnalysisResult> AnalyzeAsync(string filePath)
+        public FileAnalyzerController()
         {
-            if (!File.Exists(filePath))
-            {
-                return new AnalysisResult()
-                {
-                    IsSuccessful = false,
-                    ErrorMessage = "File not found",
-                    AnalysisTime = DateTime.Now,
-                    AnalysisType = "File Analyze",
-                };
-            }
+            _fileAnalyzerService = new FileAnalyzerService();
+        }
 
-            try
-            {
- 
-                return new AnalysisResult()
-                {
-                    IsSuccessful = true,
-                    Content = result.Content,
-                    AnalysisTime = result.AnalysisTime,
-                    AnalysisType = result.AnalysisType,
-                };
-            }
-            catch (Exception ex)
-            {
-                return new AnalysisResult()
-                {
-                    IsSuccessful = false,
-                    ErrorMessage = ex.Message,
-                    AnalysisTime = DateTime.Now,
-                    AnalysisType = "File Analyze",
-                };
-            }
-        }        
+        public async Task<AnalysisResult> AnalyzeAsync(string filePath)
+        {
+            return await _fileAnalyzerService.AnalyzeFileAsync(filePath);
+        }
     }
 }
